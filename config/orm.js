@@ -11,16 +11,14 @@ var orm = {
       });
     },
 
-    //"ISERT INTO burgers (burger_name) VALUES ('newburgername')"
+    //"ISERT INTO burgers (burger_name) VALUES (?)"
     insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
   
       queryString += " (";
       queryString += cols.toString();
       queryString += ") ";
-      queryString += "VALUES (";
-      queryString += printQuestionMarks(vals.length);
-      queryString += ") ";
+      queryString += "VALUES (?) ";
   
       console.log(queryString);
   
@@ -33,11 +31,11 @@ var orm = {
       });
     },
     // UPDATE burgers SET 
-    uptdateOne: function(table, newVals, condition, cb) {
+    updateOne: function(table, newVals, condition, cb) {
       var queryString = "UPDATE " + table;
   
       queryString += " SET ";
-      queryString += objToSql(newVals);
+      queryString += newVals;
       queryString += " WHERE ";
       queryString += condition;
   

@@ -5,20 +5,20 @@
 <ul>
   {{#each burger}}
     {{#unless devoured}}
-      {{burger_name}}
+      <li class="button">{{burger_name}}</li><button class='button' data-id='{{id}}'>devoured</button>
     {{/unless}}
   {{/each}}
 </ul>
 
 <h2>Eaten!</h2>
 
-{{!-- <ul>
-  {{#each burger}
+<ul>
+  {{#each burger}}
     {{#if devoured}}
-      {{> burger_name/burger-block devoured=false}}
+      <li class="deletebutton">{{burger_name}}</li>
     {{/if}}
   {{/each}}
-</ul> --}}
+</ul>
 
 <h2>Add a Burger</h2>
 <form id="hey">
